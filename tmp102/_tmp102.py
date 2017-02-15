@@ -47,7 +47,7 @@ class Tmp102(object):
         if register != self._last_write_register:
             # Reads come from the last register written.
             self._write_register(register)
-        val = self.bus.recv(2, addr=self.address)
+        val = self.bus.readfrom(self.address, 2)
         return val
 
     def _write_register(self, register, value=None):
